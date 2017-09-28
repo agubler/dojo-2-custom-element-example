@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dojo-2-demo</title>
+	<script src="https://rawgit.com/webcomponents/custom-elements/master/src/native-shim.js"></script>
+	<link rel="import" href="./dist/menu/menu.html" />
+</head>
+<body>
+	<demo-nav id="nav" selectedId="1"></demo-nav>
+
+	<script>
+		const data = [
+			{
+				id: '1',
+				title: 'Menu Item 1'
+			},
+			{
+				id: '2',
+				title: 'Menu Item 2'
+			}
+		];
+
+		nav.addEventListener('onItemSelected', function(event) {
+			nav.selectedId=event.detail;
+		});
+
+		nav.data = data;
+	</script>
+</body>
+</html>
