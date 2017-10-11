@@ -1,4 +1,4 @@
-import { ProjectorMixin } from '@dojo/widget-core/mixins/Projector';
+/*import { ProjectorMixin } from '@dojo/widget-core/mixins/Projector';
 import { Menu } from './widgets/Menu';
 
 const menuItemData = [
@@ -21,4 +21,4 @@ function onItemSelected(selectedId: string): void {
 
 projector.setProperties({ menuItemData, onItemSelected });
 
-projector.append();
+projector.append();*/

@@ -5,21 +5,21 @@ import { theme, ThemeableMixin } from '@dojo/widget-core/mixins/Themeable';
 import * as css from './styles/menuItem.m.css';
 
 export interface MenuItemProperties {
-	id: string;
 	title: string;
 	selected: boolean;
-	onItemSelected: (id: string) => void;
+	data: any;
+	onSelected: (data: any) => void;
 }
 
 @theme(css)
 export class MenuItem extends ThemeableMixin(WidgetBase)<MenuItemProperties> {
 
 	private _onClick() {
-		this.properties.onItemSelected(this.properties.id);
+		this.properties.onSelected(this.properties.data);
 	}
 
 	protected render() {
-		const { selected, title } = this.properties;
+		const { title, selected } = this.properties;
 
 		return v('li', { classes: this.classes(css.root) }, [
 			v('span', {

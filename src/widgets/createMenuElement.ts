@@ -3,24 +3,12 @@ import { Menu } from './Menu';
 
 export default function createHelloWorldElement(): CustomElementDescriptor {
 	return {
-		tagName: 'demo-nav',
+		tagName: 'demo-menu',
 		widgetConstructor: Menu,
-		properties: [
-			{
-				propertyName: 'data',
-				widgetPropertyName: 'menuItemData'
-			}
-		],
-		attributes: [
-			{
-				attributeName: 'selectedId',
-				propertyName: 'selectedId'
-			}
-		],
 		events: [
 			{
-				propertyName: 'onItemSelected',
-				eventName: 'onItemSelected'
+				propertyName: 'onSelected',
+				eventName: 'selected'
 			}
 		]
 	};

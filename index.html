@@ -4,27 +4,20 @@
 	<title>dojo-2-demo</title>
 	<script src="https://rawgit.com/webcomponents/custom-elements/master/src/native-shim.js"></script>
 	<link rel="import" href="./dist/menu/menu.html" />
+	<link rel="import" href="./dist/menu-item/menu-item.html" />
 </head>
 <body>
-	<demo-nav id="nav" selectedId="1"></demo-nav>
-
+	<demo-menu id="menu">
+		<demo-menu-item id="one" title="Menu Item 1"></demo-menu-item>
+		<demo-menu-item id="two" title="Menu Item 2"></demo-menu-item>
+		<demo-menu-item title="Menu Item 3"></demo-menu-item>
+	</demo-menu>
 	<script>
-		const data = [
-			{
-				id: '1',
-				title: 'Menu Item 1'
-			},
-			{
-				id: '2',
-				title: 'Menu Item 2'
-			}
-		];
-
-		nav.addEventListener('onItemSelected', function(event) {
-			nav.selectedId=event.detail;
+		one.data = { foo: 'bar' };
+		menu.addEventListener('selected', function(event) {
+			const detail = event.detail;
+			debugger;
 		});
-
-		nav.data = data;
 	</script>
 </body>
 </html>
