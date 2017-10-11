@@ -8,7 +8,7 @@
 </head>
 <body>
 	<demo-menu id="menu">
-		<demo-menu-item id="one" title="Menu Item 1"></demo-menu-item>
+		<demo-menu-item id="one" title="one"></demo-menu-item>
 		<demo-menu-item id="two" title="Menu Item 2"></demo-menu-item>
 		<demo-menu-item title="Menu Item 3"></demo-menu-item>
 	</demo-menu>
@@ -18,6 +18,9 @@
 			const detail = event.detail;
 			debugger;
 		});
+		setTimeout(function() {
+			one.setAttribute('title', 'new');
+		}, 1000);
 	</script>
 </body>
 </html>

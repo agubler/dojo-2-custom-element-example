@@ -4,7 +4,22 @@
 	<title>custom-element</title>
 	<meta name="theme-color" content="#222127">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://rawgit.com/webcomponents/custom-elements/master/src/native-shim.js"></script>
+	<link rel="import" href="./menu/menu.html" />
+	<link rel="import" href="./menu-item/menu-item.html" />
 </head>
 <body>
+	<demo-menu id="menu">
+		<demo-menu-item id="one" title="Menu Item 1"></demo-menu-item>
+		<demo-menu-item id="two" title="Menu Item 2"></demo-menu-item>
+		<demo-menu-item selected title="Menu Item 3"></demo-menu-item>
+	</demo-menu>
+	<script>
+		one.data = { foo: 'bar' };
+		menu.addEventListener('selected', function(event) {
+			const detail = event.detail;
+			console.log(detail);
+		});
+	</script>
 </body>
 </html>

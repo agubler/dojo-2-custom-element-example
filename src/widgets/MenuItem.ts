@@ -6,16 +6,16 @@ import * as css from './styles/menuItem.m.css';
 
 export interface MenuItemProperties {
 	title: string;
-	selected: boolean;
-	data: any;
-	onSelected: (data: any) => void;
+	selected?: boolean;
+	data?: any;
+	onSelected?: (data: any) => void;
 }
 
 @theme(css)
 export class MenuItem extends ThemeableMixin(WidgetBase)<MenuItemProperties> {
 
 	private _onClick() {
-		this.properties.onSelected(this.properties.data);
+		this.properties.onSelected && this.properties.onSelected(this.properties.data);
 	}
 
 	protected render() {
