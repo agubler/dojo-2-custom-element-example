@@ -12,13 +12,15 @@ class Example extends WidgetBase {
 
 	protected render() {
 		return w(Menu, { onSelected: this._onSelected }, [
-			w(MenuItem, { key: 'MenuOne', title: 'Menu Item 1' }),
-			w(MenuItem, { key: 'MenuTwo', title: 'Menu Item 2', selected: true }),
-			w(MenuItem, { key: 'MenuThree', title: 'Menu Item 3' })
-		])
+			w(MenuItem, { key: 'a', title: 'Menu Item A' }),
+			w(MenuItem, { key: 'b', title: 'Menu Item B', selected: true }),
+			w(MenuItem, { key: 'c', title: 'Menu Item C' })
+		]);
 	}
 }
+
+const element = document.getElementById('widget') as Element;
 const Projector = ProjectorMixin(Example);
 const projector = new Projector();
 
-projector.append();
+projector.append(element);

@@ -1,6 +1,6 @@
 import { WidgetBase } from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
-import { theme, ThemeableMixin } from '@dojo/widget-core/mixins/Themeable';
+import { theme, ThemedMixin } from '@dojo/widget-core/mixins/Themed';
 
 import * as css from './styles/menuItem.m.css';
 
@@ -12,7 +12,7 @@ export interface MenuItemProperties {
 }
 
 @theme(css)
-export class MenuItem extends ThemeableMixin(WidgetBase)<MenuItemProperties> {
+export class MenuItem extends ThemedMixin(WidgetBase)<MenuItemProperties> {
 
 	private _onClick() {
 		this.properties.onSelected && this.properties.onSelected(this.properties.data);
@@ -21,9 +21,9 @@ export class MenuItem extends ThemeableMixin(WidgetBase)<MenuItemProperties> {
 	protected render() {
 		const { title, selected } = this.properties;
 
-		return v('li', { classes: this.classes(css.root) }, [
+		return v('li', { classes: this.theme(css.root) }, [
 			v('span', {
-				classes: this.classes(css.item, selected ? css.selected : null),
+				classes: this.theme([ css.item, selected ? css.selected : null ]),
 				onclick: this._onClick
 			}, [ title ])
 		]);
